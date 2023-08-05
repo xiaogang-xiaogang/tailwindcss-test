@@ -16,10 +16,15 @@ module.exports = {
         11: '88px'
       },
       screens: {
-        sm: '480px',
+        sm: '400px',
         md: '768px',
         lg: '976px',
         xl: '1440px',
+      },
+      fontSize: {
+        sm: '5px',
+        base: '10px',
+        xl: '20px',
       },
     },
     plugins: [],

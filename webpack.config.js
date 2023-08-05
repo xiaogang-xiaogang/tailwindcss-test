@@ -9,7 +9,8 @@ module.exports = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'build'),
+        publicPath: '/' 
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
@@ -48,12 +49,16 @@ module.exports = {
         // contentBase: './build',
         port: 8081, // 端口号
         // inline: true,
-        hot: true
+        hot: true,
+        historyApiFallback: true,   
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlPlugin({
             template: 'public/index.html'
         })
-    ]
+    ],
+    externals:{
+        echarts:'echarts'
+    }
 }
