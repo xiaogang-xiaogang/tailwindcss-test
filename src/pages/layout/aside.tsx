@@ -27,7 +27,6 @@ const items: MenuProps['items'] = [
     getItem('基础柱状图', 'b1', null),
     getItem('堆叠柱状图', 'b2', null),
     getItem('动态排序柱状图', 'b3', null),
-    getItem('阶梯瀑布图', 'b4', null),
   ]),
 
   getItem('折线图', 'sub2', null, [
@@ -60,7 +59,7 @@ export default function aside(props) {
       navigate(`/line?type=${e.key}`)
     }else if(e.keyPath[1]=='sub3'){
       navigate(`/pie?type=${e.key}`)
-    }else{
+    }else if(e.keyPath[1]=='sub4'){
       navigate(`/scatter?type=${e.key}`)
     }
   };
@@ -72,7 +71,7 @@ export default function aside(props) {
     defaultOpenKeys[0] = 'sub2'
   }else if(location.pathname=='/pie'){
     defaultOpenKeys[0] = 'sub3'
-  }else{
+  }else if(location.pathname=='/scatter'){
     defaultOpenKeys[0] = 'sub4'
   }
 
@@ -81,7 +80,7 @@ export default function aside(props) {
     defaultSelectedKeys[0] = searchParams.get('type')
   }
   return (
-    <div className='h-full sm:w-[130px] lg:w-[300px] bg-cyan-100 '>
+    <div className='h-full sm:w-[130px] lg:w-[300px] bg-cyan-100'>
         <Menu
           className='bg-cyan-100'
           onClick={onClick}

@@ -28,9 +28,9 @@ export default function index() {
   return (
     <div className='h-full'>
         <Head></Head>
-        <div className=' bg-white h-5/6 flex ' >
+        <div className=' bg-white h-full flex ' >
             <Aside routes={routes}></Aside>
-            <div className='w-full '>
+            <div >
               <Routes>
                 { renderRoutes(routes)}
                 <Route path='*' element={<Navigate to='/home'></Navigate>}></Route>
