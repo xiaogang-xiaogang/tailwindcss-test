@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
@@ -73,19 +73,24 @@ export default function aside(props) {
     defaultOpenKeys[0] = 'sub3'
   }else if(location.pathname=='/scatter'){
     defaultOpenKeys[0] = 'sub4'
+  }else{
+    defaultOpenKeys[0] = ''
   }
-
-  // 高亮当前所在页面
   if(searchParams.get('type')){
     defaultSelectedKeys[0] = searchParams.get('type')
+  }else{
+    defaultSelectedKeys[0] =''
   }
+  console.log(defaultOpenKeys)
+  // 高亮当前所在页面
   return (
     <div className='h-full sm:w-[130px] lg:w-[300px] bg-cyan-100'>
         <Menu
-          className='bg-cyan-100'
+          className='bg-cyan-100 sm:w-[130px] lg:w-[300px]'
           onClick={onClick}
           mode="inline"
           items={items}
+          key={location.pathname=='/home'?'/home':'/id'}
           defaultOpenKeys={defaultOpenKeys}
           defaultSelectedKeys={defaultSelectedKeys}
         />
