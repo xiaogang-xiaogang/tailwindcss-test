@@ -43,6 +43,15 @@ module.exports = {
             test: /\.(js|jsx|ts|tsx)$/,
             use: 'babel-loader',
             exclude: /node_modules/
+        },{
+            test:/\.md$/,
+            use:[
+                {
+                    loader:"html-loader",
+                },{
+                    loader:"markdown-loader"
+                }
+            ]
         }]
     },
     devServer: {

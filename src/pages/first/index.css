@@ -1,0 +1,15 @@
+.first-container>h2{
+    font-size: 30px;
+}
+.first-container>h3{
+    font-size: 20px;
+    margin-top: 30px;
+}
+.first-container>ul>li{
+    list-style-type: disc;
+    margin: 10px 0 0 20px;
+}
+.first-container strong{
+    display: block;
+    margin-top: 30px;
+}

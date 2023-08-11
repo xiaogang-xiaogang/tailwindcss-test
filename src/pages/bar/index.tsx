@@ -196,7 +196,7 @@ export default function index() {
       update();
     }, 3000);
   return (
-    <div className='mt-[30px] flex flex-wrap flex-1'>
+    <div className='mt-[30px] flex flex-wrap'>
       {
         type == 'b1'?
         <>
