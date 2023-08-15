@@ -1,0 +1,15 @@
+.loading-icon{
+    background: conic-gradient(transparent, #a5a5a5);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    mask-image: radial-gradient(transparent, transparent 6.5px, black 6.5px);
+    -webkit-mask-image: radial-gradient(transparent, transparent 6.5px, black 6.5px);
+    margin-right: 10px;
+    animation: spinner5 700ms linear infinite;
+}
+@keyframes spinner5 {
+    to {
+        transform: rotate(360deg);
+    }
+}

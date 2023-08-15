@@ -33,6 +33,16 @@ const routes:Array<RouteItem> = [
         path:'/scatter',
         Component:lazy(()=>import('@/pages/scatter'))
     },
+    {
+        name:'自定义hooks推拽',
+        path:'/drag',
+        Component:lazy(()=>import('@/pages/drag'))
+    },
+    {
+        name:'login',
+        path:'/login',
+        Component:lazy(()=>import('@/pages/login'))
+    }
 ]
 
 export default routes

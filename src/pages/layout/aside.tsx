@@ -44,6 +44,7 @@ const items: MenuProps['items'] = [
   getItem('散点图', 'sub4', null, [
     getItem('基础散点图', 's4'),
   ]),
+  getItem('自定义hooks拖拽', 'sub5', null),
   { type: 'divider' },
 ];
 const defaultOpenKeys = []
@@ -61,6 +62,8 @@ export default function aside(props) {
       navigate(`/pie?type=${e.key}`)
     }else if(e.keyPath[1]=='sub4'){
       navigate(`/scatter?type=${e.key}`)
+    }else if(e.keyPath[0]=='sub5'){
+      navigate(`/drag`)
     }
   };
 
@@ -78,10 +81,11 @@ export default function aside(props) {
   }
   if(searchParams.get('type')){
     defaultSelectedKeys[0] = searchParams.get('type')
+  }else if(location.pathname=='/drag'){
+    defaultSelectedKeys[0] = 'sub5'
   }else{
-    defaultSelectedKeys[0] =''
+    defaultSelectedKeys[0] = ''
   }
-  console.log(defaultOpenKeys)
   // 高亮当前所在页面
   return (
     <div className='h-full sm:w-[130px] lg:w-[300px] bg-cyan-100'>

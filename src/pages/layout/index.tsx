@@ -6,7 +6,7 @@ import Head from './header';
 import Aside from './aside';
 import {Route, Routes, Navigate} from 'react-router-dom';
 import routes, {RouteItem} from '@/routes';
-
+import Loading from '../../component/loading';
 
 const renderRoutes = (routes: RouteItem[]) =>
   routes.map(({ path, routes, Component }) =>
@@ -14,11 +14,13 @@ const renderRoutes = (routes: RouteItem[]) =>
       renderRoutes(routes)
     ) : (
       <Route key={path} path={path} element={
+        localStorage.getItem('user')?
         <Suspense fallback={
-          <div>路由懒加载...</div>
+          <Loading text='路由' className='ml-[20px] mt-[10px]'></Loading>
         }>
           < Component />
-        </Suspense>
+        </Suspense>:
+        <div>请先登录</div>
       } />
     ),
   )
