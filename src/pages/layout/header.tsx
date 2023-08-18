@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 export default function header() {
   const navigate = useNavigate()
   const goFirst = ()=>{
-    navigate('/home')
+    navigate('/admin/home')
   }
   return (
     <div className='sm:h-[30px] lg:h-[50px] w-full bg-blue-600 cursor-pointer'>

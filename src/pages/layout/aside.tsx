@@ -45,6 +45,7 @@ const items: MenuProps['items'] = [
     getItem('基础散点图', 's4'),
   ]),
   getItem('自定义hooks拖拽', 'sub5', null),
+  getItem('大文件上传','sub6',null),
   { type: 'divider' },
 ];
 const defaultOpenKeys = []
@@ -55,34 +56,38 @@ export default function aside(props) {
   const [searchParams, setSearchParams] = useSearchParams()
   const onClick: MenuProps['onClick'] = (e) => {
     if(e.keyPath[1]=='sub1'){
-      navigate(`/bar?type=${e.key}`)
+      navigate(`/admin/bar?type=${e.key}`)
     }else if(e.keyPath[1]=='sub2'){
-      navigate(`/line?type=${e.key}`)
+      navigate(`/admin/line?type=${e.key}`)
     }else if(e.keyPath[1]=='sub3'){
-      navigate(`/pie?type=${e.key}`)
+      navigate(`/admin/pie?type=${e.key}`)
     }else if(e.keyPath[1]=='sub4'){
-      navigate(`/scatter?type=${e.key}`)
+      navigate(`/admin/scatter?type=${e.key}`)
     }else if(e.keyPath[0]=='sub5'){
-      navigate(`/drag`)
+      navigate(`/admin/drag`)
+    }else if(e.keyPath[0]=='sub6'){
+      navigate(`/admin/upload`)
     }
   };
 
   // 扩展当前页面的选项
-  if(location.pathname=='/bar'){
+  if(location.pathname=='/admin/bar'){
     defaultOpenKeys[0] = 'sub1'
-  }else if(location.pathname=='/line'){
+  }else if(location.pathname=='/admin/line'){
     defaultOpenKeys[0] = 'sub2'
-  }else if(location.pathname=='/pie'){
+  }else if(location.pathname=='/admin/pie'){
     defaultOpenKeys[0] = 'sub3'
-  }else if(location.pathname=='/scatter'){
+  }else if(location.pathname=='/admin/scatter'){
     defaultOpenKeys[0] = 'sub4'
   }else{
     defaultOpenKeys[0] = ''
   }
   if(searchParams.get('type')){
     defaultSelectedKeys[0] = searchParams.get('type')
-  }else if(location.pathname=='/drag'){
+  }else if(location.pathname=='/admin/drag'){
     defaultSelectedKeys[0] = 'sub5'
+  }else if(location.pathname=='/admin/upload'){
+
   }else{
     defaultSelectedKeys[0] = ''
   }
